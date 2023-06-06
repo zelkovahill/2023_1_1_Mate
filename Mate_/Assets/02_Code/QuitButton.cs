@@ -16,5 +16,6 @@ public class QuitButton : MonoBehaviour
         #else
         Application.Quit();
         #endif
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
 }

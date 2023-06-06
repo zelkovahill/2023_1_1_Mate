@@ -14,11 +14,13 @@ public class SettingsController : MonoBehaviour
     public void OpenSettings()
     {
         settingsPanel.SetActive(true);
+                AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
     public void CloseSettings()
     {
         settingsPanel.SetActive(false);
+                AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
     public void OnVolumeChanged(float value)
@@ -31,14 +33,17 @@ public class SettingsController : MonoBehaviour
     public void GoBack()
     {
         CloseSettings();
+                AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
 
     public void QuitGame()
     {
+            AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #else
         Application.Quit();
         #endif
+                
     }
 }
