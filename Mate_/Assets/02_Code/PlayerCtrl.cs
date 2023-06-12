@@ -30,7 +30,7 @@ public class PlayerCtrl : MonoBehaviour
         Vector3 moveDir =  new Vector3(1.0f, 0.0f , 0.0f ) * h;
         transform.Translate(moveDir * Time.deltaTime * moveSpeed);
 
-        if (h != 0)
+        if (h != 0)         
         {
             anim.SetBool("isWalking", true);
             Debug.Log(hashWalk.ToString());

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public void GameStart()
     {
             AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
