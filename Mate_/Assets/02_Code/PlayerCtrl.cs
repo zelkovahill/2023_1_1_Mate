@@ -66,6 +66,7 @@ public class PlayerCtrl : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         isJumping = true;
         anim.SetTrigger(hashJumo);
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Melee);
     }
 
     void OnCollisionEnter(Collision collision)

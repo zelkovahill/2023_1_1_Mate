@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         SceneManager.LoadScene(1);
     }
 

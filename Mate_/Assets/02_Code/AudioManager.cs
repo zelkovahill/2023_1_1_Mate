@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex; // 수정된 부분
 
-    public enum Sfx { Select }
+    public enum Sfx { Select , Melee , Dead }
 
     void Awake()
     {
@@ -49,6 +49,19 @@ public class AudioManager : MonoBehaviour
             sfxPlayers[index].volume = sfxVolume;
         }
     }
+
+    public void PlayBgm(bool isPlay)
+    {
+        if (!bgmPlayer.isPlaying)
+        {
+            bgmPlayer.Play();
+        }
+        else
+        {
+            bgmPlayer.Stop();
+        }
+    }
+
 
     public void PlaySfx(Sfx sfx)
     {

@@ -15,12 +15,11 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-    
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
         }
-    
+
         if (currentLives <= 0)
         {
             // 게임 오버 로직
@@ -47,13 +46,26 @@ public class GameController : MonoBehaviour
 
     private void RestartGame()
     {
-        // 게임 재시작 로직 작성
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // 3초 후에 씬을 이동하는 코루틴 시작
+        StartCoroutine(RestartWithDelay());
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
     }
-    
-    private bool isPaused = false;
 
-   
+    private System.Collections.IEnumerator RestartWithDelay()
+    {
+        // 게임 일시 정지
+        Time.timeScale = 0f;
+
+        yield return new WaitForSecondsRealtime(3f); // 3초 대기 (실제 시간 기준)
+
+        // 씬 재로드
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        // 게임 재개
+        Time.timeScale = 1f;
+    }
+
+    private bool isPaused = false;
 
     private void TogglePause()
     {
@@ -79,5 +91,5 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1f;
         // 포즈 상태 해제에 맞게 추가 동작 수행
-        }
+    }
 }
