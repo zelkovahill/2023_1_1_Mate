@@ -3,25 +3,52 @@ using UnityEngine.UI;
 
 public class SettingsController : MonoBehaviour
 {
-    public GameObject settingsPanel;
-    public Slider volumeSlider;
+   public GameObject settingsPanel;
+    public Button[] buttons; // 숨길 버튼들
+    private bool isSettingsOpen = false;
 
     private void Start()
     {
         settingsPanel.SetActive(false);
     }
 
-    public void OpenSettings()
+    public void ToggleSettings()
     {
-        settingsPanel.SetActive(true);
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        isSettingsOpen = !isSettingsOpen;
+
+        if (isSettingsOpen)
+        {
+            OpenSettings();
+        }
+        else
+        {
+            CloseSettings();
+        }
     }
 
-    public void CloseSettings()
+    private void OpenSettings()
+    {
+        settingsPanel.SetActive(true);
+        SetButtonsInteractable(false); // 버튼들을 비활성화
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+    }
+
+    private void CloseSettings()
     {
         settingsPanel.SetActive(false);
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        SetButtonsInteractable(true); // 버튼들을 활성화
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
     }
+
+    private void SetButtonsInteractable(bool interactable)
+    {
+        foreach (Button button in buttons)
+        {
+            button.interactable = interactable;
+            button.gameObject.SetActive(interactable); // 버튼 활성/비활성화
+        }
+    }
+
 
     public void OnVolumeChanged(float value)
     {

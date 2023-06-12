@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/01_Scenes/Main_ff.unity
     guid: 82263400765204071b400b5852bfacbf
   - enabled: 1
-    path: Assets/01_Scenes/0612 ff.unity
-    guid: 1a971cd4405698445b054bada9bda444
+    path: "Assets/01_Scenes/0612 \u1109\u1175\u11AF\u1111\u1162.unity"
+    guid: 9e9336fc7ab4949e58dead8cf73f0ce7
   m_configObjects: {}

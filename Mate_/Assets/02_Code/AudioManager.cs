@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex; // 수정된 부분
 
-    public enum Sfx { Select , Melee , Dead }
+    public enum Sfx { Select , Melee , Dead , Clear }
 
     void Awake()
     {
