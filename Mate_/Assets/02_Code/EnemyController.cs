@@ -8,21 +8,28 @@ public class EnemyController : MonoBehaviour
     public Transform[] waypoints;
     private int currentWaypointIndex = 0;
     private Transform player;
+    private bool isCollisionHandled = false; // 충돌 처리 여부를 나타내는 플래그 변수
+    private bool isPlayerDie = false; // 플레이어 사망 여부를 나타내는 전역 변수
+    private Animator animator; // 애니메이터 컴포넌트
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        animator = GetComponent<Animator>(); // 애니메이터 컴포넌트 가져오기
         SetNextWaypoint();
     }
 
     private void Update()
     {
-        if (player != null)
+        if (!isPlayerDie && player != null)
         {
             // 플레이어의 위치를 추적하여 이동 방향 결정
             Vector3 direction = (player.position - transform.position).normalized;
             direction.y = 0f; // Y 축 값을 0으로 설정하여 수직 방향 이동 방지
             transform.position += direction * moveSpeed * Time.deltaTime;
+
+            // 이동하는 동안에는 움직임 애니메이션 재생
+            animator.SetBool("isMoving", true);
         }
         else
         {
@@ -37,6 +44,9 @@ public class EnemyController : MonoBehaviour
             {
                 SetNextWaypoint();
             }
+
+            // 정지 상태에서는 움직임 애니메이션 정지
+            animator.SetBool("isMoving", false);
         }
     }
 
@@ -49,12 +59,17 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (!isCollisionHandled && collision.transform.CompareTag("Player"))
         {
-            // 플레이어와 충돌한 경우, 오디오 재생 후 3초 후에 씬을 다시 로드
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+            isCollisionHandled = true;
+            isPlayerDie = true; // 플레이어 사망 상태로 변경
+            moveSpeed = 0f; // 움직임을 멈추기 위해 moveSpeed를 0으로 설정
+
+            // 애니메이션 재생 정지
+            animator.enabled = false;
+
             StartCoroutine(ReloadSceneAfterDelay(3f));
             AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
         }
@@ -63,7 +78,12 @@ public class EnemyController : MonoBehaviour
     private IEnumerator ReloadSceneAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+
+        // 3초 후에 씬을 다시 로드하기 전에 상태를 초기화
+        isPlayerDie = false;
+        isCollisionHandled = false;
+        moveSpeed = 3f;
+
         SceneManager.LoadScene(1);
     }
-
 }
