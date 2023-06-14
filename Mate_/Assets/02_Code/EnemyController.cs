@@ -30,6 +30,16 @@ public class EnemyController : MonoBehaviour
 
             // 이동하는 동안에는 움직임 애니메이션 재생
             animator.SetBool("isMoving", true);
+
+            // 왼쪽 또는 오른쪽을 바라보도록 회전 적용
+            if (direction.x >= 0)
+            {
+                transform.eulerAngles = new Vector3(0f, 90f, 0f); // 오른쪽을 보도록 회전
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0f, 270f, 0f); // 왼쪽을 보도록 회전
+            }
         }
         else
         {

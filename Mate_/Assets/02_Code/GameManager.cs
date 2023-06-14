@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameClear()
     {
+        AudioManager.instance.PlayBgm(false);
         Time.timeScale = 0f; // 게임 일시 정지
 
         yield return new WaitForSecondsRealtime(3f); // 3초 대기 (실제 시간 기준)
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
-        
+        AudioManager.instance.PlayBgm(true);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
         SceneManager.LoadScene(1);
     }

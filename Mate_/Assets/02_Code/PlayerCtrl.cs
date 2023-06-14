@@ -67,6 +67,7 @@ public class PlayerCtrl : MonoBehaviour
         isJumping = true;
         anim.SetTrigger(hashJumo);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Melee);
+
     }
 
     void OnCollisionEnter(Collision collision)
