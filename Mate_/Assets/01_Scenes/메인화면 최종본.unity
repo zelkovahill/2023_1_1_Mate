@@ -507,8 +507,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330de533b92945d68a4f2cfba3fd497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backButton: {fileID: 0}
   settingsPanel: {fileID: 1862066330}
   buttons: []
+  gameStartButton: {fileID: 0}
+  settingsButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &396706357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecd73cc5204240869662b07fc4fc2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 8300000, guid: f17211ca812e54c6b82371bcc1705957, type: 3}
+  bgmClip: {fileID: 8300000, guid: 45030ba12ad5f4cf08872206b29a088f, type: 3}
   bgmVolume: 0.5
   sfxClips:
   - {fileID: 8300000, guid: 4b294d59d2399014daa718b35c9de73b, type: 3}

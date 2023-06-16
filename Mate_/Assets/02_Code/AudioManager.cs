@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -18,12 +19,13 @@ public class AudioManager : MonoBehaviour
     AudioSource[] sfxPlayers;
     int channelIndex; // 수정된 부분
 
-    public enum Sfx { Select , Melee , Dead , Clear }
+    public enum Sfx { Select, Melee, Dead, Clear }
 
     void Awake()
     {
         instance = this;
         Init();
+        PlayBgm(true); // BGM 재생 추가
     }
 
     void Init()
@@ -52,9 +54,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBgm(bool isPlay)
     {
-        if (!bgmPlayer.isPlaying)
+        if (isPlay)
         {
-            bgmPlayer.Play();
+            if (!bgmPlayer.isPlaying)
+            {
+                bgmPlayer.Play();
+            }
         }
         else
         {
@@ -62,6 +67,20 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void SetBgmVolume(float volume)
+    {
+        bgmVolume = volume;
+        bgmPlayer.volume = bgmVolume;
+    }
+
+    public void SetSfxVolume(float volume)
+    {
+        sfxVolume = volume;
+        foreach (AudioSource sfxPlayer in sfxPlayers)
+        {
+            sfxPlayer.volume = sfxVolume;
+        }
+    }
 
     public void PlaySfx(Sfx sfx)
     {

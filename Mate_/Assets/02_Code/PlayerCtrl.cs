@@ -33,7 +33,7 @@ public class PlayerCtrl : MonoBehaviour
         if (h != 0)         
         {
             anim.SetBool("isWalking", true);
-            Debug.Log(hashWalk.ToString());
+           
         }
         else
         {
