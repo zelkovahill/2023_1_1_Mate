@@ -8,6 +8,8 @@ public class GameController2 : MonoBehaviour
     public float pauseDuration = 3f;
     private bool isPaused = false;
 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !isPaused)

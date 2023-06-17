@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
     {
         // 3초 후에 씬을 이동하는 코루틴 시작
         StartCoroutine(RestartWithDelay());
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
+        
     }
 
     private System.Collections.IEnumerator RestartWithDelay()
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
         // 게임 일시 정지
         Time.timeScale = 0f;
 
-        yield return new WaitForSecondsRealtime(3f); // 3초 대기 (실제 시간 기준)
+        yield return new WaitForSecondsRealtime(0f); // 3초 대기 (실제 시간 기준)
 
         // 씬 재로드
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
     public float sfxVolume;
     public int channels;
     AudioSource[] sfxPlayers;
-    int channelIndex; // 수정된 부분
+    int channelIndex;
 
     public enum Sfx { Select, Melee, Dead, Clear }
 
@@ -25,12 +25,11 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         Init();
-        PlayBgm(true); // BGM 재생 추가
+        PlayBgm(true);
     }
 
     void Init()
     {
-        // 배경음 플레이어 초기화
         GameObject bgmObject = new GameObject("BgmPlayer");
         bgmObject.transform.parent = transform;
         bgmPlayer = bgmObject.AddComponent<AudioSource>();
@@ -39,7 +38,6 @@ public class AudioManager : MonoBehaviour
         bgmPlayer.volume = bgmVolume;
         bgmPlayer.clip = bgmClip;
 
-        // 효과음 플레이어 초기화
         GameObject sfxObject = new GameObject("SfxPlayer");
         sfxObject.transform.parent = transform;
         sfxPlayers = new AudioSource[channels];
@@ -71,6 +69,11 @@ public class AudioManager : MonoBehaviour
     {
         bgmVolume = volume;
         bgmPlayer.volume = bgmVolume;
+    }
+
+    public float GetBgmVolume()
+    {
+        return bgmVolume;
     }
 
     public void SetSfxVolume(float volume)

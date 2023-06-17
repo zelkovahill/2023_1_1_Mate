@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public Transform targetLocation; // 클리어 지점의 Transform
 
+    private bool isPaused = false; // 게임 일시 정지 여부를 저장하는 변수 추가
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -38,7 +40,19 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f; // 게임 일시 정지
+        
+    }
 
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1f; // 게임 재개
+        
+    }
 
 
 }
