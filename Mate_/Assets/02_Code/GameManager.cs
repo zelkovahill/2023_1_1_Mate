@@ -44,14 +44,14 @@ public class GameManager : MonoBehaviour
     {
         isPaused = true;
         Time.timeScale = 0f; // 게임 일시 정지
-        
+
     }
 
     public void ResumeGame()
     {
         isPaused = false;
         Time.timeScale = 1f; // 게임 재개
-        
+
     }
 
 
