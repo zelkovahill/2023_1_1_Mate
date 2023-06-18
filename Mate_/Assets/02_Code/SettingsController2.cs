@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsController2 : MonoBehaviour
@@ -7,15 +8,15 @@ public class SettingsController2 : MonoBehaviour
     private Button backButton;
 
     public GameObject settingsPanel;
-    public Button[] buttons; // 숨길 버튼들
+    public Button[] buttons; 
     public Button gameStartButton;
     public Button settingsButton;
     public Button quitButton;
     private bool isSettingsOpen = false;
 
-    public Slider soundSlider; // 사운드 볼륨 조절용 슬라이더
+    public Slider soundSlider; 
 
-    private bool isGamePaused = false; // 게임 일시 정지 여부를 저장하는 변수
+    private bool isGamePaused = false; 
 
     private void Start()
     {
@@ -46,11 +47,13 @@ public class SettingsController2 : MonoBehaviour
 
     private void OpenSettings()
     {
+
         isGamePaused = true;
-        Time.timeScale = 0f; // 게임 일시 정지
+        Time.timeScale = 0f; 
         settingsPanel.SetActive(true);
 
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        AudioManager.instance.EffectBgm(true);
     }
 
     private void CloseSettings()
@@ -59,6 +62,7 @@ public class SettingsController2 : MonoBehaviour
         settingsPanel.SetActive(false);
 
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        AudioManager.instance.EffectBgm(false);
     }
 
     private void SetButtonsInteractable(bool interactable)
@@ -66,7 +70,7 @@ public class SettingsController2 : MonoBehaviour
         foreach (Button button in buttons)
         {
             button.interactable = interactable;
-            button.gameObject.SetActive(interactable); // 버튼 활성/비활성화
+            button.gameObject.SetActive(interactable); 
         }
     }
 
@@ -78,15 +82,23 @@ public class SettingsController2 : MonoBehaviour
 
     public void OnSoundSliderValueChanged(float value)
     {
-        AudioManager.instance.SetBgmVolume(value); // 배경음 볼륨 조절
-        AudioManager.instance.SetSfxVolume(value); // 효과음 볼륨 조절
+        AudioManager.instance.SetBgmVolume(value); 
+        AudioManager.instance.SetSfxVolume(value); 
+    }
+
+
+    public void HomeBack()
+    {
+       
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        SceneManager.LoadScene(0); // 다음 씬으로 이동
     }
 
     private void FixedUpdate()
     {
         if (isGamePaused)
         {
-            // 게임이 일시 정지된 상태에서 UI 작동을 원하는 업데이트 로직을 작성하세요.
+            
         }
     }
 }

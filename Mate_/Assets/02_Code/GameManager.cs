@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
             // 플레이어가 클리어 지점에 도착한 경우
             StartCoroutine(GameClear());
         }

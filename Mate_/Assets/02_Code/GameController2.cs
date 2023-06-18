@@ -20,6 +20,7 @@ public class GameController2 : MonoBehaviour
 
     private IEnumerator PauseGameAndLoadNextScene()
     {
+        AudioManager.instance.PlayBgm(false);
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Clear);
         isPaused = true;
         Time.timeScale = 0f; // 게임 일시정지

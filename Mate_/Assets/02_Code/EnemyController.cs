@@ -81,6 +81,7 @@ public class EnemyController : MonoBehaviour
             animator.enabled = false;
 
             StartCoroutine(ReloadSceneAfterDelay(3f));
+            AudioManager.instance.PlayBgm(false);
             AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
         }
     }
