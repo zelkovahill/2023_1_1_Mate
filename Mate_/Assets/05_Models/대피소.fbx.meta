@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1be1afc7c5f31741b50991c2444a085
+guid: b4ddcb05d562e8d4185b920bfa437bf3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,32 +8,47 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: aiStandardSurface1
-    second: {fileID: 2100000, guid: d4ecb69ad7a00b84d9bf2d8202323808, type: 2}
+    second: {fileID: 2100000, guid: e3f5a501995e494438866ece1cfa97cd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: aiStandardSurface2
-    second: {fileID: 2100000, guid: 864a2eb6e378d0c418a8d4ec83749c16, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: aiStandardSurface3
-    second: {fileID: 2100000, guid: 2c4dadd927f4c054184531c29c1e5f9e, type: 2}
+    second: {fileID: 2100000, guid: 698acb9d7fe69b547bd8482cdaffb628, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: aiStandardSurface4
-    second: {fileID: 2100000, guid: 1a33473a08bf73b4eb734693121dd400, type: 2}
+    second: {fileID: 2100000, guid: 4eac588c86c44104f982034d65c09e19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface5
+    second: {fileID: 2100000, guid: 1bf4014e3c2e09b44a6eec78eb6176f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface6
+    second: {fileID: 2100000, guid: e72d0055b8eef2f4395cebc85a741061, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: ade5f53bd1fdb15429fdaba8716564be, type: 2}
+    second: {fileID: 2100000, guid: cbad5da8fb03cd14a918c94202ec7b37, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: "\uC77C\uBC18\uC4F0\uB808\uAE30"
-    second: {fileID: 2800000, guid: 6e597a211921c664d81d046ce1259726, type: 3}
+      name: "\uB300\uB9AC\uC11D"
+    second: {fileID: 2800000, guid: 2c1fc098c61cea04f8114163a7dfbded, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "\uB300\uB9AC\uC11D (\uBC1D)"
+    second: {fileID: 2800000, guid: d413c61797bfe3446bc31376bb171fbc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: "\uB300\uD53C\uC18C"
+    second: {fileID: 2800000, guid: d2d215e961d13d84cbd055f477999853, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
