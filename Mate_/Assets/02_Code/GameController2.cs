@@ -1,33 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameController2 : MonoBehaviour
 {
     public Transform goalPoint;
-    public float pauseDuration = 3f;
-    private bool isPaused = false;
-
-
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !isPaused)
+        if (other.CompareTag("Player"))
         {
-            StartCoroutine(PauseGameAndLoadNextScene());
+            LoadNextScene();
         }
     }
 
-    private IEnumerator PauseGameAndLoadNextScene()
+    private void LoadNextScene()
     {
-        AudioManager.instance.PlayBgm(false);
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Clear);
-        isPaused = true;
-        Time.timeScale = 0f; // 게임 일시정지
-
-        yield return new WaitForSecondsRealtime(pauseDuration); // 3초 대기
-
-        Time.timeScale = 1f; // 게임 재개
-        SceneManager.LoadScene(0); // 다음 씬으로 이동
+        SceneManager.LoadScene(3); // 원하는 다음 씬의 인덱스 또는 씬의 이름으로 변경
     }
 }

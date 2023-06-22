@@ -53,7 +53,7 @@ public class SettingsController2 : MonoBehaviour
         settingsPanel.SetActive(true);
 
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
-        AudioManager.instance.EffectBgm(true);
+        
     }
 
     private void CloseSettings()
@@ -62,7 +62,7 @@ public class SettingsController2 : MonoBehaviour
         settingsPanel.SetActive(false);
 
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
-        AudioManager.instance.EffectBgm(false);
+       
     }
 
     private void SetButtonsInteractable(bool interactable)
