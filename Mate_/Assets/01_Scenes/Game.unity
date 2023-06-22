@@ -14829,7 +14829,6 @@ GameObject:
   - component: {fileID: 1871912414}
   - component: {fileID: 1871912413}
   - component: {fileID: 1871912412}
-  - component: {fileID: 1871912415}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14903,16 +14902,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!165 &1871912415
-AudioHighPassFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871912411}
-  m_Enabled: 1
-  m_CutoffFrequency: 5000
-  m_HighpassResonanceQ: 1
 --- !u!1001 &1877269778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15559,7 +15548,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalPoint: {fileID: 1919451893}
-  pauseDuration: 3
 --- !u!4 &1919451893
 Transform:
   m_ObjectHideFlags: 0
