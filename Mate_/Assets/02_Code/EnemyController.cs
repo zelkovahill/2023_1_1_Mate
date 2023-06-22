@@ -80,9 +80,7 @@ public class EnemyController : MonoBehaviour
             // 애니메이션 재생 정지
             animator.enabled = false;
 
-            StartCoroutine(ReloadSceneAfterDelay(3f));
-            AudioManager.instance.PlayBgm(false);
-            AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
+            SceneManager.LoadScene(2);
         }
     }
 

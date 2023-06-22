@@ -94,6 +94,14 @@ public class SettingsController2 : MonoBehaviour
         SceneManager.LoadScene(0); // 다음 씬으로 이동
     }
 
+    public void GameBack()
+    {
+
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Select);
+        SceneManager.LoadScene(1); // 다음 씬으로 이동
+    }
+
+
     private void FixedUpdate()
     {
         if (isGamePaused)
