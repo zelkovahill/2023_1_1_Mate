@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    private Rigidbody rb;
+
     public float moveSpeed = 10.0f;
     public float jumpForce = 5.0f;
     private int jumpCount = 0;
     private bool isJumping = false;
 
-    public Animator anim;
+    private Animator anim;
+    private Rigidbody rb;
     private readonly int hashWalk = Animator.StringToHash("isWalking");
     private readonly int hashJump = Animator.StringToHash("isJump");
 
@@ -68,7 +69,6 @@ public class PlayerCtrl : MonoBehaviour
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         isJumping = true;
         anim.SetTrigger(hashJump);
-        AudioManager.instance.PlaySfx(AudioManager.Sfx.Melee);
     }
 
     void OnCollisionEnter(Collision collision)
