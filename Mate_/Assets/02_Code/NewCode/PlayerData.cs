@@ -15,4 +15,8 @@ public class PlayerData : MonoBehaviour
     public float _moveSpeed = 5.0f;
     public float _jumpPower = 10.0f;
     public bool _isGrounded = true;
+
+    [Header("플레이어 카메라")]
+    public Camera _playerCamera;
+
 }
